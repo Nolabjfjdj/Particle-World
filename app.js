@@ -14,9 +14,16 @@ function update(dt){const {w,h}=dimensions(),speed=Number($('speed').value);elap
 function draw(){const {w,h}=dimensions();ctx.fillStyle='#070914';ctx.fillRect(0,0,w,h);if(mode==='music'){ctx.fillStyle='#242344';for(const q of walls){ctx.fillRect(q.x,q.y,q.w,q.h);ctx.fillStyle='#39325f';ctx.fillRect(q.x,q.y,q.w,3);ctx.fillStyle='#242344';}}else if(mode==='orbit'||mode==='escape'){const q=walls[0];ctx.save();ctx.translate(q.cx,q.cy);ctx.rotate(q.a);ctx.beginPath();ctx.arc(0,0,q.r,0,Math.PI*2);ctx.strokeStyle='#8d75f8';ctx.lineWidth=3;ctx.shadowColor='#9c7dff';ctx.shadowBlur=13;ctx.stroke();for(let i=0;i<5;i++){ctx.rotate(Math.PI*2/5);ctx.fillStyle='#35305b';ctx.fillRect(q.r-8,-7,25,14);}ctx.restore();if(mode==='escape'){ctx.fillStyle='#c7b5ff';ctx.font='12px monospace';ctx.textAlign='center';ctx.fillText('SORTIE DANS '+Math.ceil(escapeTime)+'s',w/2,h/2);}}for(const b of balls){for(let i=0;i<b.trail.length;i++){const p=b.trail[i];ctx.globalAlpha=(i/b.trail.length)*.28;ctx.fillStyle='hsl('+b.hue+' 90% 68%)';ctx.beginPath();ctx.arc(p[0],p[1],b.r*(i/b.trail.length),0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;ctx.fillStyle='hsl('+b.hue+' 95% 68%)';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=12;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;}if(mode==='escape'){ctx.fillStyle='#8c90aa';ctx.font='10px monospace';ctx.textAlign='center';ctx.fillText('BOULES : '+balls.length,w/2,h-18);}else{$('counter').textContent=balls.length+' PARTICULES';}}
 function frame(t){const dt=Math.min((t-last)/1000||0,.035);last=t;if(!paused)update(dt);draw();requestAnimationFrame(frame);}
 function setMode(m){mode=m;document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));$('modeTitle').textContent=modes[m].title;$('modeDescription').textContent=modes[m].desc;reset();}
-document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
-$('reset').addEventListener('click',reset);
-$('pause').addEventListener('click',()=>{paused=!paused;$('pause').textContent=paused?'▶ Reprendre':'Ⅱ Pause';$('overlay').classList.toggle('show',paused);});
+document.addEventListener('click',event=>{
+  const modeButton=event.target.closest('.mode[data-mode]');
+  if(modeButton){setMode(modeButton.dataset.mode);return;}
+  if(event.target.closest('#reset')){reset();return;}
+  if(event.target.closest('#pause')){
+    paused=!paused;
+    $('pause').textContent=paused?'▶ Reprendre':'Ⅱ Pause';
+    $('overlay').classList.toggle('show',paused);
+  }
+});
 $('speed').addEventListener('input',e=>$('speedValue').textContent=Number(e.target.value).toFixed(1)+'×');
 $('count').addEventListener('input',e=>{$('countValue').textContent=e.target.value;$('counter').textContent=e.target.value+' PARTICULES';});
 $('count').addEventListener('change',reset);
