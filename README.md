@@ -39,4 +39,4 @@ Le MIDI est lu directement dans le navigateur. Aucune dépendance externe ni env
 
 ## État
 
-Version prototype 0.1.9. Le mode Music Maze convertit les événements MIDI en temps avec une carte de changements de tempo, déplace le rectangle entre les blocs par interpolation temporelle et déclenche chaque note au contact du bloc correspondant. Le parcours est réparti dans un grand espace 2D et complété par des blocs décoratifs sans note. La physique des rebonds reste à développer.
+Version prototype 0.2.0. Le mode Music Maze convertit les événements MIDI en temps avec une carte de changements de tempo, déplace le rectangle à vitesse constante entre les blocs, avec des distances proportionnelles aux intervalles MIDI, et déclenche chaque note au contact. Le générateur tente aussi d'éviter que les segments traversent les anciens blocs. Le parcours est réparti dans un grand espace 2D et complété par des blocs décoratifs sans note. La physique des rebonds reste à développer.
