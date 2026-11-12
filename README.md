@@ -16,7 +16,7 @@ Aucune dépendance Python externe n'est nécessaire.
 
 ## Modes disponibles
 
-- **Music Maze** : particules dans un labyrinthe, avec une note synthétique à chaque collision.
+- **Music Maze** : importe un fichier MIDI, analyse ses notes et génère un parcours visuel synchronisé à la musique. Cette première étape pose les bases du générateur de niveau.
 - **Orbit Arena** : particules dans une arène circulaire avec des obstacles rotatifs.
 - **Particle Flood** : simulation d'un groupe de particules avec collisions.
 - **Escape** : arène circulaire avec un compte à rebours.
@@ -24,6 +24,7 @@ Aucune dépendance Python externe n'est nécessaire.
 ## Commandes
 
 - Choisir un mode dans le panneau de gauche.
+- Dans Music Maze, importer un fichier .mid ou .midi puis lancer le parcours.
 - Modifier la vitesse, le nombre de boules et le volume.
 - Utiliser Pause ou Réinitialiser.
 
@@ -32,10 +33,10 @@ Aucune dépendance Python externe n'est nécessaire.
 - `server.py` : serveur HTTP Python sans dépendance.
 - `index.html` : interface.
 - `style.css` : présentation responsive.
-- `app.js` : moteur de simulation et audio Web Audio.
+- `app.js` : moteur de simulation, lecture MIDI et audio Web Audio.
 
-Le rendu et les animations sont exécutés dans le navigateur afin de rester fluides sur ordinateur et mobile. Python sert au lancement local et pourra accueillir plus tard des outils de génération de niveaux ou de gestion de contenu.
+Le MIDI est lu directement dans le navigateur. Aucune dépendance externe ni envoi du fichier vers un serveur n'est nécessaire.
 
 ## État
 
-Version prototype 0.1.2. Music Maze utilise maintenant un labyrinthe en couloirs et une gamme de notes déterminée par les collisions. Les autres modes restent des prototypes à améliorer.
+Version prototype 0.1.3. L'import MIDI, l'extraction des notes et la génération visuelle du parcours sont en place. La physique de rebond synchronisée avec les blocs reste à construire.
