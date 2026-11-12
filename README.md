@@ -39,4 +39,4 @@ Le MIDI est lu directement dans le navigateur. Aucune dépendance externe ni env
 
 ## État
 
-Version prototype 0.1.7. Le mode Music Maze utilise un grand espace de jeu en deux dimensions, avec des blocs répartis sur une zone plus large que l'écran et une caméra qui suit le carré. L'import MIDI, l'extraction des notes et la génération du parcours sont en place. La détection de contact et les changements de trajectoire restent une première approximation à affiner.
+Version prototype 0.1.8. Le mode Music Maze convertit les événements MIDI en temps avec une carte de changements de tempo, joue les notes selon leur chronologie et synchronise la progression visuelle des blocs avec leur instant prévu. Le parcours est réparti dans un grand espace 2D et complété par des blocs décoratifs sans note. La physique des rebonds reste à développer.
