@@ -38,4 +38,4 @@ Le rendu et les animations sont exécutés dans le navigateur afin de rester flu
 
 ## État
 
-Version prototype 0.1.1. Les modes sont des premières implémentations jouables, à affiner à partir des vidéos de référence.
+Version prototype 0.1.2. Music Maze utilise maintenant un labyrinthe en couloirs et une gamme de notes déterminée par les collisions. Les autres modes restent des prototypes à améliorer.
