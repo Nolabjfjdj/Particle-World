@@ -39,4 +39,4 @@ Le MIDI est lu directement dans le navigateur. Aucune dépendance externe ni env
 
 ## État
 
-Version prototype 0.1.3. L'import MIDI, l'extraction des notes et la génération visuelle du parcours sont en place. La physique de rebond synchronisée avec les blocs reste à construire.
+Version prototype 0.1.4. L'import MIDI, l'extraction des notes et la génération visuelle du parcours sont en place. Le mode Music Maze utilise un carré orienté dans sa direction de déplacement, une séquence de blocs et une sélection monophonique qui écarte les notes démarrant presque simultanément. La détection de contact et les changements de trajectoire restent une première approximation à affiner.
