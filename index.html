@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080914">
+<title>Particle World</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✳</span><span>PARTICLE <b>WORLD</b></span></a>
+    <span class="version">EARLY BUILD 0.1</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">PHYSICS PLAYGROUND</p>
+      <h1>Un monde en <span>mouvement.</span></h1>
+      <p class="sub">Choisis une expérience, modifie ses paramètres et regarde les particules prendre vie.</p>
+    </section>
+    <section class="workspace">
+      <aside class="sidebar">
+        <p class="section-label">MODES DE JEU</p>
+        <button class="mode active" data-mode="music"><span>♫</span><span><b>Music Maze</b><small>Les collisions deviennent des notes</small></span></button>
+        <button class="mode" data-mode="orbit"><span>◎</span><span><b>Orbit Arena</b><small>Boules et obstacles rotatifs</small></span></button>
+        <button class="mode" data-mode="swarm"><span>✣</span><span><b>Particle Flood</b><small>Des centaines de particules</small></span></button>
+        <button class="mode" data-mode="escape"><span>◉</span><span><b>Escape</b><small>Atteindre la sortie à temps</small></span></button>
+        <div class="settings">
+          <p class="section-label">PARAMÈTRES</p>
+          <label>Vitesse <output id="speedValue">1.0×</output><input id="speed" type="range" min=".3" max="2.5" step=".1" value="1"></label>
+          <label>Nombre de boules <output id="countValue">35</output><input id="count" type="range" min="5" max="180" value="35"></label>
+          <label>Volume <output id="volumeValue">35%</output><input id="volume" type="range" min="0" max="100" value="35"></label>
+          <label class="select-label">Son
+            <select id="sound"><option value="sine">Doux</option><option value="triangle">Piano synthétique</option><option value="sine-soft">Cristallin</option></select>
+          </label>
+        </div>
+        <div class="side-actions"><button id="reset" class="secondary">↻ Réinitialiser</button><button id="pause" class="secondary">Ⅱ Pause</button></div>
+      </aside>
+      <section class="game-panel">
+        <div class="game-head"><div><p class="section-label">EXPÉRIENCE ACTIVE</p><h2 id="modeTitle">Music Maze</h2></div><span class="live"><i></i> SIMULATION</span></div>
+        <div class="canvas-wrap"><canvas id="game" aria-label="Zone de jeu Particle World"></canvas><div class="overlay" id="overlay"><span>Ⅱ</span> PAUSE</div></div>
+        <div class="game-foot"><span id="modeDescription">Chaque contact avec un bloc déclenche une note.</span><span id="counter">35 PARTICULES</span></div>
+      </section>
+    </section>
+  </main>
+  <footer>PARTICLE WORLD <span>Une expérience de simulation interactive</span></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
